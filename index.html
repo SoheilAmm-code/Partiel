@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mes partiels</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);--bg:#eef1f7;--card:#fff;--ink:#1b2340;--mute:#68718e;--line:#dde2ee;--calm:#2f5bd8;--calm-bg:#e4ebff;--soon:#b86a00;--soon-bg:#ffe9bf;--hot:#c4281c;--hot-bg:#ffdad5;--ok:#1f8a5b;--acc:#ffd84d;--head:'Bricolage Grotesque','Trebuchet MS',system-ui,sans-serif;--body:'DM Sans',system-ui,-apple-system,sans-serif}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1426;--card:#1a2140;--ink:#eef1ff;--mute:#9aa3c4;--line:#2a3359;--calm:#8fb0ff;--calm-bg:#23305f;--soon:#ffc766;--soon-bg:#4a3510;--hot:#ff8f84;--hot-bg:#4d1d1a;--ok:#5ad59b}}
+:root[data-theme="dark"]{--bg:#0f1426;--card:#1a2140;--ink:#eef1ff;--mute:#9aa3c4;--line:#2a3359;--calm:#8fb0ff;--calm-bg:#23305f;--soon:#ffc766;--soon-bg:#4a3510;--hot:#ff8f84;--hot-bg:#4d1d1a;--ok:#5ad59b}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}html{height:100%}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 16px/1.45 var(--body)}
+main{max-width:600px;margin:0 auto;padding:14px 14px calc(96px + env(safe-area-inset-bottom,0px))}
+header{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+h1{font:800 30px/1.05 var(--head);margin:6px 0;letter-spacing:-.02em}
+h2{font:600 15px var(--head);color:var(--mute);margin:20px 0 8px}
+.sub{color:var(--mute);margin:0 0 14px}
+button{font:inherit;cursor:pointer;color:var(--ink)}
+.pill{background:var(--acc);color:#1b2340;border:0;border-radius:22px;height:44px;padding:0 14px;font-weight:700}
+.btn{border:1px solid var(--line);background:var(--card);border-radius:12px;min-height:40px;padding:0 12px;font-weight:600}
+.btn.d{color:var(--hot)}
+.card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--c,#2f5bd8);border-radius:16px;padding:12px;margin-bottom:10px}
+.card.past{opacity:.7}
+.top{display:grid;grid-template-columns:68px 1fr;gap:12px;align-items:center;cursor:pointer}
+.cd{border-radius:12px;padding:8px 2px;text-align:center;font-family:var(--head);background:var(--calm-bg);color:var(--calm)}
+.cd b{display:block;font-size:26px;line-height:1;font-weight:800}.cd span{font-size:11px;font-weight:600}
+.cd.soon{background:var(--soon-bg);color:var(--soon)}.cd.hot{background:var(--hot-bg);color:var(--hot)}.cd.g{background:var(--line);color:var(--mute)}
+.name{font:800 18px/1.2 var(--head);margin:0}.meta{color:var(--mute);font-size:13px;margin:2px 0 0}
+.bar{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin:8px 0 2px}.bar i{display:block;height:100%;background:var(--ok)}
+.t{display:flex;gap:10px;align-items:center;min-height:40px;font-size:15px}
+.t input{width:20px;height:20px;accent-color:var(--ok);flex:none}.t.on span{text-decoration:line-through;color:var(--mute)}
+.t small{color:var(--mute);margin-left:auto;white-space:nowrap}
+.det{border-top:1px solid var(--line);margin-top:10px;padding-top:6px}
+.acts{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.warn{background:var(--hot-bg);color:var(--hot);border-radius:12px;padding:10px 12px;margin-bottom:8px;font-size:14px;font-weight:500}
+.empty{text-align:center;color:var(--mute);padding:36px 16px;border:2px dashed var(--line);border-radius:16px}
+.tabs{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:4}
+.tabs button{flex:1;border:0;background:none;height:56px;font-size:12px;color:var(--mute);font-weight:600}.tabs button.on{color:var(--calm)}
+.tabs button span{display:block;font-size:20px;line-height:1}
+.bg{position:fixed;inset:0;background:rgba(10,14,30,.55);display:none;align-items:flex-end;justify-content:center;z-index:6}.bg.open{display:flex}
+.sheet{background:var(--card);width:100%;max-width:600px;border-radius:22px 22px 0 0;padding:18px 16px calc(18px + env(safe-area-inset-bottom,0px));max-height:94%;overflow:auto}
+.sheet h3{font:800 21px var(--head);margin:0 0 6px}
+label.l{display:block;font-weight:600;font-size:14px;margin:10px 0 3px}
+input[type=text],input[type=date],input[type=time],input[type=number],input[type=search],select,textarea{width:100%;font:inherit;color:var(--ink);background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px}
+input[type=color]{width:100%;height:44px;border:1px solid var(--line);border-radius:12px;background:var(--bg);padding:3px}
+textarea{min-height:78px;resize:vertical}.r2{display:grid;grid-template-columns:1fr 1fr;gap:10px}.r3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+.err{color:var(--hot);font-size:14px;min-height:18px;margin:6px 0}
+.bt{display:flex;gap:10px}.bt button{flex:1;height:48px;border-radius:14px;border:1px solid var(--line);background:var(--bg);font-weight:700}.bt .ok{background:var(--ink);color:var(--bg)}
+.toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(72px + env(safe-area-inset-bottom,0px));background:var(--ink);color:var(--bg);padding:10px 14px;border-radius:14px;display:none;gap:14px;align-items:center;z-index:7;font-size:15px;max-width:92%}.toast.show{display:flex}.toast button{background:none;border:0;color:var(--acc);font-weight:700}
+.pomo{text-align:center}.pomo .tm{font:800 54px/1 var(--head);margin:6px 0}
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}.cal .h{font-size:12px;color:var(--mute);font-weight:600}
+.day{aspect-ratio:1;border:1px solid var(--line);background:var(--card);border-radius:10px;font-size:14px;padding:3px;display:flex;flex-direction:column;align-items:center;gap:2px}
+.day.sel{outline:3px solid var(--calm)}.day.now{font-weight:800;border-color:var(--calm)}.day.x{visibility:hidden}
+.day i{width:8px;height:8px;border-radius:50%;display:inline-block;margin:0 1px}
+.st{display:grid;grid-template-columns:1fr 1fr;gap:10px}.st .card b{font:800 26px var(--head);display:block}.st .card span{color:var(--mute);font-size:13px}
+.c7{display:flex;align-items:flex-end;gap:6px;height:80px}.c7 div{flex:1;background:var(--calm-bg);border-radius:6px 6px 0 0;min-height:3px;position:relative}.c7 div i{position:absolute;bottom:100%;left:0;right:0;text-align:center;font-size:10px;color:var(--mute);font-style:normal}
+.big{width:100%;text-align:left;border:1px solid var(--line);background:var(--card);border-radius:18px;padding:18px;margin-bottom:12px;font:800 22px var(--head);display:flex;justify-content:space-between;align-items:center}.big small{font:400 14px var(--body);color:var(--mute);display:block;margin-top:2px}.big:disabled{opacity:.45;cursor:not-allowed}
+a{color:var(--calm)}:focus-visible{outline:3px solid var(--calm);outline-offset:2px}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style></head><body>
+<main><header><div><h1 id="ti">Aujourd’hui</h1></div><div style="display:flex;gap:8px"><button class="pill" id="add">+ Partiel</button><button class="pill" id="addtp" style="background:var(--ink);color:var(--bg)">+ TP</button></div></header><p class="sub" id="sub"></p><div id="v"></div></main>
+<nav class="tabs" id="tabs"><button data-t="year"><span>🎓</span>Année</button><button data-t="today"><span>☀</span>Accueil</button><button data-t="exams"><span>☰</span>Partiels</button><button data-t="tp"><span>🧪</span>TP</button><button data-t="cal"><span>▦</span>Agenda</button><button data-t="stats"><span>◔</span>Stats</button></nav>
+<div class="bg" id="bg"><div class="sheet" role="dialog" aria-modal="true">
+<h3 id="st">Nouveau partiel</h3>
+<label class="l" for="f-sel">Matière</label><select id="f-sel"></select><input type="text" id="f-name" hidden autocomplete="off" placeholder="Nom de la matière" style="margin-top:8px">
+<div class="r2"><div><label class="l" for="f-cat">Bloc</label><select id="f-cat"></select></div><div><label class="l" for="f-col">Couleur</label><input type="color" id="f-col" value="#2f5bd8"></div></div>
+<div id="rw-ttl" style="display:none"><label class="l" for="f-ttl">Titre du TP (facultatif)</label><input type="text" id="f-ttl" autocomplete="off" placeholder="Ex. TP2 – Filtrage"></div><div class="r2"><div><label class="l" for="f-date" id="lb-date">Date du partiel</label><input type="date" id="f-date"></div><div><label class="l" for="f-time">Heure</label><input type="time" id="f-time"></div></div>
+
+<div class="r2" id="rw-cp"><div><label class="l" for="f-coef">Coef.</label><input type="number" id="f-coef" min="0.5" step="0.5" value="1"></div><div><label class="l" for="f-prio">Priorité</label><select id="f-prio"><option value="1">Basse</option><option value="2" selected>Normale</option><option value="3">Haute</option></select></div></div>
+<label class="l" id="lb-top" for="f-top">À réviser (un par ligne, durée en min après « | »)</label><textarea id="f-top" placeholder="Chapitre 1 | 45&#10;Fiches de TD | 30"></textarea><button class="btn" id="tpl" type="button" style="margin-top:6px">+ Étapes types (cours, fiche, TD, annales)</button>
+<label class="l" for="f-notes">Notes</label><textarea id="f-notes"></textarea>
+<label class="l" for="f-links">Liens (un par ligne)</label><textarea id="f-links" placeholder="https://..."></textarea>
+<p class="err" id="err" role="alert"></p><div class="bt"><button id="cancel">Annuler</button><button class="ok" id="save">Enregistrer</button></div></div></div>
+<div class="toast" id="toast"><span id="tm"></span><button id="undo" hidden>Annuler</button></div>
+<script>
+(function(){
+var K='partiels-v2',S={exams:[],data:{},cur:null,act:{},study:{},theme:'auto',budget:120},tab='year',ys=null,fk='exam',open={},editId=null,last=null,tt,calM=new Date(),selDay=null,DL=null,q='',fcat='';
+var P=new Date;calM=new Date(P.getFullYear(),P.getMonth(),1);
+var $=function(i){return document.getElementById(i)},p2=function(n){return(n<10?'0':'')+n};
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+function ymd(d){return d.getFullYear()+'-'+p2(d.getMonth()+1)+'-'+p2(d.getDate())}
+function td(){return ymd(new Date)}
+function pd(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2])}
+function dl(s){if(!s)return null;var n=new Date;return Math.round((pd(s)-new Date(n.getFullYear(),n.getMonth(),n.getDate()))/864e5)}
+function fd(s){if(!s)return'Date à définir';return pd(s).toLocaleDateString('fr-FR',{weekday:'long',day:'numeric',month:'long'})}
+function norm(e){var d={cat:'',color:'#2f5bd8',coef:1,prio:2,target:'',grade:'',notes:'',links:'',time:'',place:'',topics:[]};for(var k in d)if(e[k]==null)e[k]=d[k];return e}
+var PRE={F1S1:[['Mathématiques','#2f5bd8',[['Probabilités',38],['Calcul numérique',27],['Traitement du signal',35]]],['Optique','#8e3fd0',[['Chaîne d’acquisition',32],['Ingénierie de la vision',34],['Introduction générale à l’optique photonique',34]]],['Physique','#e07a1f',[['EM dans le vide',43],['EM dans la matière',35],['Métrologie et capteurs',22]]],['Numérique','#1f9d6b',[['Langage C',35],['Architecture SI',27],['Bases des réseaux',19],['Télécommunications',19]]]]};
+function seed(k){var o=[];(PRE[k]||[]).forEach(function(b){b[2].forEach(function(m,i){o.push(norm({id:k+'-'+b[0].slice(0,3)+i,name:m[0],cat:b[0],color:b[1],coef:m[1],pct:1,date:'',topics:[]}))})});return o}
+function setSem(k){S.cur=k;if(!S.data[k])S.data[k]={exams:seed(k)};S.exams=S.data[k].exams=S.data[k].exams.map(norm)}
+var BC={F1S1:{'Mathématiques':11,'Physique':6,'Optique':6,'Numérique':5}};
+function bc(c){return(BC[S.cur]||{})[c]||0}
+function wt(e){return e.kind==='tp'?150:e.coef*(bc(e.cat)||1)}
+function dn(e){return e.kind==='tp'?'TP '+e.name+(e.title?' – '+e.title:''):e.name}
+function ctx(){return S.cur?'FISE '+S.cur[1]+' • Semestre '+S.cur[3]:''}
+function load(){try{var r=localStorage.getItem(K),o=r?JSON.parse(r):null;if(!o){var v=localStorage.getItem('partiels-v1');if(v)o={exams:JSON.parse(v)}}if(o){var old=o.exams;delete o.exams;S=Object.assign(S,o);if(old&&old.length){if(!S.data.F1S1)S.data.F1S1={exams:seed('F1S1')};S.data.F1S1.exams=S.data.F1S1.exams.concat(old)}}}catch(e){}S.exams=[];if(S.cur)setSem(S.cur);theme()}
+function save(){try{var c=Object.assign({},S);delete c.exams;localStorage.setItem(K,JSON.stringify(c))}catch(e){}}
+function theme(){var r=document.documentElement;if(S.theme==='auto')r.removeAttribute('data-theme');else r.setAttribute('data-theme',S.theme)}
+function toast(m,u){$('tm').textContent=m;$('undo').hidden=!u;$('toast').classList.add('show');clearTimeout(tt);tt=setTimeout(function(){$('toast').classList.remove('show');last=null},5000)}
+function up(){return S.exams.filter(function(e){return e.date&&dl(e.date)>=0})}
+function bAvg(c){var a=0,w=0;S.exams.forEach(function(e){if((e.cat||'Autres')===c&&e.grade!==''){a+=e.grade*e.coef;w+=+e.coef}});return w?a/w:null}
+function mark(n){S.act[td()]=(S.act[td()]||0)+n}
+function streak(){var d=new Date,n=0;if(!S.act[ymd(d)])d.setDate(d.getDate()-1);while(S.act[ymd(d)]){n++;d.setDate(d.getDate()-1)}return n}
+function prog(e){var t=e.topics.length,d=e.topics.filter(function(x){return x.done}).length;return{t:t,d:d,p:t?Math.round(d/t*100):0}}
+function cdBox(e){if(!e.date)return'<div class="cd g"><b>?</b><span>date</span></div>';var n=dl(e.date),p=n<0,c=p?'g':n<=3?'hot':n<=14?'soon':'';return'<div class="cd '+c+'"><b>'+(p?'Fini':n===0?'Auj.':n===1?'Demain':'J-'+n)+'</b><span>'+(p?'passé':n>1?'jours':'')+'</span></div>'}
+function plan(e){var n=Math.max(dl(e.date),1),und=e.topics.filter(function(x){return!x.done}),dn=e.topics.filter(function(x){return x.doneOn===td()}),q=Math.max(Math.ceil((und.length+dn.length)/n)-dn.length,0);return{todo:und.slice(0,q),done:dn,rem:und.length,n:n}}
+function late(e){if(!e.date)return false;var d=dl(e.date),pr=prog(e);return d>=0&&d<=7&&pr.t&&pr.d/pr.t<.5&&(1-pr.d/pr.t)>(d/14)}
+function gcal(e){var d=e.date.replace(/-/g,''),n=new Date(pd(e.date).getTime()+864e5),dd=e.time?d+'T'+e.time.replace(':','')+'00/'+d+'T'+p2(Math.min(+e.time.split(':')[0]+2,23))+e.time.split(':')[1]+'00':d+'/'+ymd(n).replace(/-/g,'');return'https://calendar.google.com/calendar/render?action=TEMPLATE&text='+encodeURIComponent((e.kind==='tp'?'TP : ':'Partiel : ')+dn(e))+'&dates='+dd+'&location='+encodeURIComponent(e.place||'')}
+function links(e){return e.links.split('\n').map(function(s){return s.trim()}).filter(function(s){return/^https?:\/\//i.test(s)}).map(function(s){return'<a href="'+esc(s)+'" target="_blank" rel="noopener">'+esc(s.replace(/^https?:\/\//,'').slice(0,40))+'</a>'}).join('<br>')}
+function chk(e,showAll,list){return list.map(function(x){var i=e.topics.indexOf(x);return'<label class="t'+(x.done?' on':'')+'"><input type="checkbox" data-id="'+e.id+'" data-i="'+i+'"'+(x.done?' checked':'')+'><span>'+esc(x.t)+'</span>'+(x.min?'<small>'+x.min+' min</small>':'')+'</label>'}).join('')}
+/* vues */
+function vToday(){
+  var u=up().sort(function(a,b){return wt(b)*b.prio/(dl(b.date)+1)-wt(a)*a.prio/(dl(a.date)+1)});
+  var h='<div class="card pomo"><select id="po-ex" aria-label="Matière">'+u.map(function(e){return'<option value="'+e.id+'"'+(PO.ex===e.id?' selected':'')+'>'+esc(dn(e))+'</option>'}).join('')+'</select><div class="tm" id="po-t">'+fmt(PO.left)+'</div><div class="acts" style="justify-content:center"><button class="btn" data-a="po">'+(PO.run?'Pause':'Démarrer 25 min')+'</button><button class="btn" data-a="por">Réinitialiser</button></div></div>';
+  var rv=[];S.exams.forEach(function(e){if(e.date&&dl(e.date)<0)return;e.topics.forEach(function(t,i){(t.rv||[]).forEach(function(r,k){if(!r.ok&&r.d<=td())rv.push('<label class="t"><input type="checkbox" data-rv="'+e.id+'|'+i+'|'+k+'"><span>'+esc(t.t)+'</span><small>'+esc(e.name)+'</small></label>')})})});
+  if(rv.length)h+='<h2>À revoir ('+rv.length+')</h2><div class="card">'+rv.join('')+'</div>';
+  if(!u.length)return h+'<div class="empty" style="margin-top:12px">'+(S.exams.some(function(e){return!e.date})?'Aucune date de partiel renseignée.<br>Va dans l’onglet Partiels, touche une matière puis « Modifier » pour saisir sa date.':'Aucun partiel à venir.<br>Ajoute-en un avec « + Partiel ».')+'</div>';
+  var tot=0,body='',bd=S.budget||120,sm=0;u.forEach(function(e){sm+=wt(e)*e.prio/(dl(e.date)+1)});var rec=function(e){return Math.max(5,Math.round(bd*(wt(e)*e.prio/(dl(e.date)+1))/sm/5)*5)};
+  u.forEach(function(e){var pl=plan(e);if(late(e))h+='<div class="warn">⚠ '+esc(dn(e))+' : il reste '+pl.rem+' point(s) à voir pour J-'+dl(e.date)+'. Il faut accélérer.</div>';
+    var all=pl.done.concat(pl.todo);if(!all.length)return;pl.todo.forEach(function(x){tot+=x.min||0});
+    body+='<div class="card" style="--c:'+e.color+'"><p class="name">'+esc(dn(e))+'</p><p class="meta">'+(dl(e.date)===0?(e.kind==='tp'?'TP':'Partiel')+' aujourd’hui':'J-'+dl(e.date)+' • '+pl.rem+' restant(s)')+' • ≈ '+rec(e)+' min conseillées</p>'+chk(e,1,all)+'</div>'});
+  return h+'<h2>À faire aujourd’hui'+(tot?' • ≈ '+tot+' min':'')+'</h2>'+(body||'<div class="empty">Rien à faire aujourd’hui. Bien joué !</div>')}
+function cardE(e){var pr=prog(e),o=open[e.id],gr=e.grade!==''?' • note '+e.grade+'/20':'';
+  var h='<div class="card'+(e.date&&dl(e.date)<0?' past':'')+'" style="--c:'+e.color+'"><div class="top" data-o="'+e.id+'">'+cdBox(e)+'<div><p class="name">'+esc(dn(e))+'</p><p class="meta">'+(e.cat?esc(e.cat)+' • ':'')+fd(e.date)+(e.time?' '+e.time.replace(':','h'):'')+(e.place?' • '+esc(e.place):'')+'</p><p class="meta">'+(e.kind==='tp'?'Travaux pratiques':(e.pct?e.coef+' % du bloc':'coef '+e.coef)+' • '+['','basse','normale','haute'][e.prio]+gr)+'</p></div></div>';
+  if(pr.t)h+='<div class="bar"><i style="width:'+pr.p+'%"></i></div><div class="meta">'+pr.d+'/'+pr.t+' révisés</div>';
+  if(o){h+='<div class="det">'+chk(e,1,e.topics)+(e.notes?'<p class="meta" style="white-space:pre-wrap">'+esc(e.notes)+'</p>':'')+(links(e)?'<p class="meta">'+links(e)+'</p>':'')+
+    (e.kind==='tp'?'':'<label class="l">Note obtenue /20</label><input type="number" min="0" max="20" step="0.25" data-g="'+e.id+'" value="'+esc(e.grade)+'" placeholder="Après l’examen">')+
+    '<div class="acts"><button class="btn" data-ed="'+e.id+'">Modifier</button>'+(e.date?'<a class="btn" style="display:inline-flex;align-items:center;text-decoration:none" href="'+gcal(e)+'" target="_blank" rel="noopener">Google Agenda</a>':'')+'<button class="btn" data-sh="'+e.id+'">Partager</button><button class="btn d" data-del="'+e.id+'">Supprimer</button></div></div>'}
+  return h+'</div>'}
+function vExams(){
+  var cats=[];S.exams.forEach(function(e){if(e.cat&&cats.indexOf(e.cat)<0)cats.push(e.cat)});
+  var h='<button class="btn" data-a="dates" style="margin-bottom:10px">📅 Saisir toutes les dates</button><input type="search" id="q" placeholder="Rechercher…" value="'+esc(q)+'" style="margin-bottom:8px">'+(cats.length?'<select id="fc" style="margin-bottom:8px"><option value="">Tous les blocs</option>'+cats.map(function(c){return'<option'+(c===fcat?' selected':'')+'>'+esc(c)+'</option>'}).join('')+'</select>':'');
+  if(!S.exams.length)return'<div class="empty">Aucune matière.<br>Appuie sur « + Partiel » pour en ajouter.</div>';
+  var l=S.exams.filter(function(e){return e.kind!=='tp'&&(!fcat||e.cat===fcat)&&e.name.toLowerCase().indexOf(q.toLowerCase())>=0}),g={},o=[];
+  l.forEach(function(e){var c=e.cat||'Autres';if(!g[c]){g[c]=[];o.push(c)}g[c].push(e)});
+  var nd=S.exams.filter(function(e){return!e.date&&e.kind!=='tp'}).length;
+  if(nd)h+='<div class="warn" style="background:var(--soon-bg);color:var(--soon)">'+nd+' matière(s) sans date. Touche une matière, puis « Modifier », pour saisir la date de son partiel.</div>';
+  o.forEach(function(c){var av=bAvg(c);g[c].sort(function(x,y){return(x.date||'9999')+x.time<(y.date||'9999')+y.time?-1:1});h+='<h2>'+esc(c)+(bc(c)?' • coef '+bc(c):'')+(av!==null?' • moyenne '+av.toFixed(2)+'/20':'')+'</h2>'+g[c].map(cardE).join('')});
+  return h+(l.length?'':'<div class="empty">Aucun résultat.</div>')}
+function vCal(){
+  var y=calM.getFullYear(),m=calM.getMonth(),f=(new Date(y,m,1).getDay()+6)%7,n=new Date(y,m+0+1,0).getDate(),h='<div class="acts" style="justify-content:space-between;align-items:center;margin:0 0 10px"><button class="btn" data-m="-1">‹</button><b style="font:800 18px var(--head)">'+calM.toLocaleDateString('fr-FR',{month:'long',year:'numeric'})+'</b><button class="btn" data-m="1">›</button></div><div class="cal">';
+  'LMMJVSD'.split('').forEach(function(c){h+='<div class="h">'+c+'</div>'});
+  for(var i=0;i<f;i++)h+='<div class="day x"></div>';
+  for(var d=1;d<=n;d++){var s=y+'-'+p2(m+1)+'-'+p2(d),ex=S.exams.filter(function(e){return e.date===s});h+='<button class="day'+(s===td()?' now':'')+(s===selDay?' sel':'')+'" data-d="'+s+'">'+d+'<span>'+ex.slice(0,3).map(function(e){return'<i style="background:'+e.color+'"></i>'}).join('')+'</span></button>'}
+  h+='</div>';var sd=selDay&&S.exams.filter(function(e){return e.date===selDay});
+  if(sd)h+='<h2>'+fd(selDay)+'</h2>'+(sd.length?sd.map(cardE).join(''):'<div class="empty">Aucun partiel ce jour-là.</div>');
+  var w=up().filter(function(e){return dl(e.date)<=7}).length;if(w>1)h+='<div class="warn" style="margin-top:12px">'+w+' partiels dans les 7 prochains jours : semaine chargée.</div>';return h}
+function mins(m){return m>=60?Math.floor(m/60)+' h '+p2(m%60):m+' min'}
+function vStats(){
+  var tot=0,ex=S.exams;for(var k in S.study)tot+=S.study[k];var A=0,B=0,G=0,W=0,T=0,bl=[];ex.forEach(function(e){var c=e.cat||'Autres';if(bl.indexOf(c)<0)bl.push(c)});var av=bl.map(bAvg).filter(function(x){return x!==null}),gen=av.length?av.reduce(function(a,b){return a+b},0)/av.length:null;
+  ex.forEach(function(e){var p=prog(e);A+=p.d;B+=p.t;if(e.grade!==''){G+=e.grade*e.coef;W+=+e.coef}});
+  var days=[];for(var i=6;i>=0;i--){var d=new Date;d.setDate(d.getDate()-i);days.push([d.toLocaleDateString('fr-FR',{weekday:'narrow'}),S.act[ymd(d)]||0])}
+  var mx=Math.max.apply(null,days.map(function(x){return x[1]}).concat([1]));
+  var h='<div class="st"><div class="card"><b>🔥 '+streak()+'</b><span>jours d’affilée</span></div><div class="card"><b>'+mins(tot)+'</b><span>de pomodoro</span></div><div class="card"><b>'+(B?Math.round(A/B*100):0)+' %</b><span>points révisés ('+A+'/'+B+')</span></div></div>';
+  h+='<h2>7 derniers jours</h2><div class="card"><div class="c7">'+days.map(function(x){return'<div style="height:'+Math.max(x[1]/mx*100,4)+'%"><i>'+(x[1]||'')+'</i></div>'}).join('')+'</div><div class="c7" style="height:auto;margin-top:4px">'+days.map(function(x){return'<span style="flex:1;text-align:center;font-size:11px;color:var(--mute)">'+x[0]+'</span>'}).join('')+'</div></div>';
+  if(av.length)h+='<h2>Moyennes</h2>'+bl.map(function(c){var a=bAvg(c),k=bc(c);return'<div class="card"><p class="name">'+esc(c)+(k?' • coef '+k:'')+'</p><p class="meta">Moyenne du bloc : <b>'+(a===null?'–':a.toFixed(2)+'/20')+'</b>'+(a===null?'':' • points perdus : '+(20-a).toFixed(2))+'</p>'+ex.filter(function(e){return(e.cat||'Autres')===c&&e.kind!=='tp'}).map(function(e){return'<div class="t"><span>'+esc(e.name)+'</span><small>'+(e.grade!==''?e.grade+'/20 (−'+(20-e.grade).toFixed(2)+')':'–')+'</small></div>'}).join('')+'</div>'}).join('');var s=ex.filter(function(e){return S.study[e.id]});if(s.length)h+='<h2>Temps par matière</h2>'+s.map(function(e){return'<div class="card" style="--c:'+e.color+'"><p class="name">'+esc(dn(e))+'</p><p class="meta">'+mins(S.study[e.id])+'</p></div>'}).join('');
+  h+='<h2>Réglages</h2><div class="card"><label class="l" for="bd" style="margin-top:0">Temps de révision par jour (min)</label><input type="number" id="bd" min="15" max="600" step="15" value="'+(S.budget||120)+'" style="margin-bottom:6px"><label class="l" for="th">Thème</label><select id="th"><option value="auto">Automatique</option><option value="light">Clair</option><option value="dark">Sombre</option></select><div class="acts"><button class="btn" data-a="exp">Sauvegarder</button><button class="btn" data-a="imp">Restaurer</button><button class="btn d" data-a="rst">Réinitialiser ce semestre</button></div><input type="file" id="fi" accept=".json,application/json" hidden></div>';
+  return h}
+function vYear(){var h='';
+  if(S.cur&&!ys)h+='<button class="big" data-y="cont" style="background:var(--acc);color:#1b2340;border:0"><span>Continuer<small style="color:#1b2340">'+ctx()+'</small></span><span>→</span></button>';
+  if(!ys)return h+'<h2>Année</h2>'+[1,2,3].map(function(n){return'<button class="big" data-y="F'+n+'"'+(n>1?' disabled':'')+'><span>FISE '+n+'<small>'+(n>1?'Bientôt disponible':'1ère année')+'</small></span><span>'+(n>1?'🔒':'→')+'</span></button>'}).join('');
+  return'<button class="btn" data-y="back" style="margin-bottom:12px">← Retour</button><h2>FISE '+ys[1]+' : choisis le semestre</h2>'+[1,2].map(function(n){var k=ys+'S'+n,c=(S.data[k]?S.data[k].exams:seed(k)).length;return'<button class="big" data-y="'+k+'"><span>Semestre '+n+'<small>'+(c?c+' matières':'Matières à venir (tu pourras en ajouter)')+'</small></span><span>→</span></button>'}).join('')}
+function vTP(){var l=S.exams.filter(function(e){return e.kind==='tp'}).sort(function(x,y){return(x.date||'9999')+x.time<(y.date||'9999')+y.time?-1:1});
+  return l.length?l.map(cardE).join(''):'<div class="empty">Aucun TP pour l’instant.<br>Appuie sur « + TP » : « Préparer TP » (30 min) et « Rédiger TP » (1 h) sont ajoutés automatiquement.</div>'}
+function vDates(){var g={},o=[];S.exams.forEach(function(e){if(e.kind==='tp')return;var c=e.cat||'Autres';if(!g[c]){g[c]=[];o.push(c)}g[c].push(e)});
+  return'<button class="btn" data-a="dok" style="margin-bottom:6px">← Terminé</button><p class="meta">Choisis la date de chaque partiel :</p>'+o.map(function(c){return'<h2>'+esc(c)+'</h2><div class="card">'+g[c].map(function(e){return'<label class="l" style="margin-top:6px">'+esc(e.name)+'</label><input type="date" data-dt="'+e.id+'" value="'+esc(e.date)+'">'}).join('')+'</div>'}).join('')}
+var T={tp:['Mes TP',vTP],dates:['Saisir les dates',vDates],year:['Mon année',vYear],today:['Aujourd’hui',vToday],exams:['Mes partiels',vExams],cal:['Calendrier',vCal],stats:['Statistiques',vStats]};
+function render(){if(!S.cur&&tab!=='year')tab='year';var t=T[tab],u=up().sort(function(a,b){return a.date.localeCompare(b.date)});$('ti').textContent=t[0];
+  var hd=(tab==='year'||!S.cur)?'none':'';$('add').style.display=hd;$('addtp').style.display=hd;$('sub').textContent=tab==='year'?'Choisis ton année, puis ton semestre':ctx()+' • '+(u.length?u.length+' à venir – prochain : '+dn(u[0])+' ('+(dl(u[0].date)===0?'aujourd’hui':'J-'+dl(u[0].date))+')':'aucun partiel daté à venir');
+  $('v').innerHTML=t[1]();var b=$('tabs').children;for(var i=0;i<b.length;i++)b[i].classList.toggle('on',b[i].dataset.t===(tab==='dates'?'exams':tab));
+  if($('th'))$('th').value=S.theme;}
+/* pomodoro */
+var PO={ex:null,left:1500,run:false,end:0,iv:null};
+function fmt(s){return p2(Math.floor(s/60))+':'+p2(s%60)}
+function poTick(){PO.left=Math.max(Math.round((PO.end-Date.now())/1e3),0);if($('po-t'))$('po-t').textContent=fmt(PO.left);
+  if(!PO.left){clearInterval(PO.iv);PO.run=false;PO.left=1500;if(PO.ex){S.study[PO.ex]=(S.study[PO.ex]||0)+25;mark(25);save()}try{navigator.vibrate&&navigator.vibrate([300,150,300])}catch(e){}toast('Pomodoro terminé : 25 min comptabilisées !');render()}}
+function poToggle(){var s=$('po-ex');if(s)PO.ex=s.value;if(PO.run){clearInterval(PO.iv);PO.run=false}else{if(!PO.ex)return toast('Ajoute d’abord un partiel.');PO.end=Date.now()+PO.left*1e3;PO.run=true;PO.iv=setInterval(poTick,500)}render()}
+/* formulaire */
+var F=['name','cat','col','date','time','coef','prio','top','notes','links'];
+function openForm(id,kind){editId=id||null;var e=id?S.exams.find(function(x){return x.id===id}):null;fk=e?(e.kind==='tp'?'tp':'exam'):(kind||'exam');$('st').textContent=(e?'Modifier le ':'Nouveau ')+(fk==='tp'?'TP':'partiel');$('err').textContent='';
+  var v={name:e?e.name:'',cat:e?e.cat:'',col:e?e.color:'#2f5bd8',date:e?e.date:'',time:e?e.time:'',coef:e?e.coef:1,prio:e?e.prio:2,top:e?e.topics.map(function(x){return x.t+(x.min?' | '+x.min:'')}).join('\n'):(fk==='tp'?'Préparer TP | 30\nRédiger TP | 60':''),notes:e?e.notes:'',links:e?e.links:''};
+  fillCat();F.forEach(function(k){$('f-'+k).value=v[k]});fillSel(e?e.name:'');var tp=fk==='tp';$('rw-cp').style.display=tp?'none':'';$('tpl').style.display=tp?'none':'';$('rw-ttl').style.display=tp?'':'none';$('f-ttl').value=(e&&e.title)||'';$('lb-date').textContent=tp?'Date du TP':'Date du partiel';$('lb-top').textContent=tp?'À faire (un par ligne, durée en min après « | »)':'À réviser (un par ligne, durée en min après « | »)';$('bg').classList.add('open');setTimeout(function(){$('f-name').focus()},50)}
+function fillCat(){var o=(PRE[S.cur]||[]).map(function(b){return b[0]});S.exams.forEach(function(e){if(e.cat&&o.indexOf(e.cat)<0)o.push(e.cat)});$('f-cat').innerHTML=o.map(function(x){return'<option>'+esc(x)+'</option>'}).join('')+'<option value="">Autres</option>'}
+function tpl(){var t=$('f-top'),c=t.value.trim(),a=['Relire le cours | 45','Faire la fiche de synthèse | 30','Refaire les exercices de TD | 60','Faire les annales | 60'].filter(function(l){return c.indexOf(l.split(' |')[0])<0});t.value=(c?c+'\n':'')+a.join('\n')}
+$('tpl').onclick=tpl;
+function fillSel(cur){var g={},o=[];S.exams.forEach(function(e){if(e.kind==='tp')return;var c=e.cat||'Autres';if(!g[c]){g[c]=[];o.push(c)}if(g[c].indexOf(e.name)<0)g[c].push(e.name)});
+  $('f-sel').innerHTML='<option value="">Choisir une matière…</option>'+o.map(function(c){return'<optgroup label="'+esc(c)+'">'+g[c].map(function(n){return'<option value="'+esc(n)+'">'+esc(n)+'</option>'}).join('')+'</optgroup>'}).join('')+'<option value="__o">Autre matière…</option>';
+  var k=cur&&S.exams.some(function(e){return e.name===cur});$('f-sel').value=cur?(k?cur:'__o'):'';$('f-name').hidden=$('f-sel').value!=='__o'}
+$('f-sel').onchange=function(){var v=this.value,o=$('f-name');if(v==='__o'){o.hidden=false;o.value='';o.focus();return}o.hidden=true;o.value=v;if(!editId){var m=S.exams.find(function(e){return e.name===v&&e.kind!=='tp'});if(m){$('f-cat').value=m.cat;$('f-col').value=m.color;$('f-coef').value=m.coef;if(fk!=='tp'){$('f-top').value=m.topics.map(function(x){return x.t+(x.min?' | '+x.min:'')}).join('\n');if(!m.topics.length)tpl()}}}};
+function submit(){var sv=$('f-sel').value,n=sv==='__o'?$('f-name').value.trim():sv,d=$('f-date').value;if(!n)return $('err').textContent='Indique le nom de la matière.';
+  var old=editId?S.exams.find(function(x){return x.id===editId}):(fk==='tp'?null:S.exams.find(function(x){return x.name===n&&!x.date&&x.kind!=='tp'}));
+  var tp=$('f-top').value.split('\n').map(function(s){return s.trim()}).filter(Boolean).map(function(s){var p=s.split('|'),t=p[0].trim(),m=parseInt(p[1])||0,o=old&&old.topics.find(function(x){return x.t===t});return{t:t,min:m,done:o?o.done:false,doneOn:o?o.doneOn:null}});
+  var e=old||{id:Date.now().toString(36)+Math.random().toString(36).slice(2,5),grade:''};
+  Object.assign(e,{kind:fk==='tp'?'tp':'exam',title:$('f-ttl').value.trim(),name:n,cat:$('f-cat').value.trim(),color:$('f-col').value,date:d,time:$('f-time').value,coef:parseFloat($('f-coef').value)||1,prio:+$('f-prio').value,notes:$('f-notes').value.trim(),links:$('f-links').value.trim(),topics:tp});
+  if(!old)S.exams.push(e);if(fk==='tp')tab='tp';save();$('bg').classList.remove('open');render()}
+/* fichiers */
+function saveFile(name,data){if(DL){DL.save({filename:name,data:data}).then(function(){toast('Fichier enregistré')},function(e){if(e&&e.code!=='declined')toast('Enregistrement impossible')})}else{try{var u=URL.createObjectURL(new Blob([data],{type:'application/json'})),l=document.createElement('a');l.href=u;l.download=name;document.body.appendChild(l);l.click();l.remove();setTimeout(function(){URL.revokeObjectURL(u)},1000);toast('Sauvegarde téléchargée')}catch(e){toast('Téléchargement impossible')}}}
+function share(e){var t=(e.kind==='tp'?'TP ':'Partiel ')+dn(e)+' – '+fd(e.date)+(e.time?' à '+e.time.replace(':','h'):'')+(e.place?' ('+e.place+')':'');if(navigator.share)navigator.share({text:t}).catch(function(){});else{try{navigator.clipboard.writeText(t);toast('Texte copié')}catch(x){toast(t)}}}
+/* événements */
+$('add').onclick=function(){openForm(null,'exam')};$('addtp').onclick=function(){openForm(null,'tp')};$('cancel').onclick=function(){$('bg').classList.remove('open')};$('save').onclick=submit;
+$('bg').onclick=function(e){if(e.target===$('bg'))$('bg').classList.remove('open')};
+document.addEventListener('keydown',function(e){if(e.key==='Escape')$('bg').classList.remove('open')});
+$('tabs').onclick=function(e){var b=e.target.closest('button');if(b){tab=b.dataset.t;if(tab==='year')ys=null;render()}};
+$('undo').onclick=function(){if(last){S.exams.splice(last.i,0,last.e);last=null;save();render()}$('toast').classList.remove('show')};
+$('v').addEventListener('click',function(e){var t=e.target,b;
+  if(b=t.closest('[data-o]')){var i=b.dataset.o;open[i]=!open[i];return render()}
+  if(b=t.closest('[data-ed]'))return openForm(b.dataset.ed);
+  if(b=t.closest('[data-sh]'))return share(S.exams.find(function(x){return x.id===b.dataset.sh}));
+  if(b=t.closest('[data-del]')){var k=S.exams.findIndex(function(x){return x.id===b.dataset.del});last={e:S.exams[k],i:k};S.exams.splice(k,1);save();render();return toast('« '+last.e.name+' » supprimé',1)}
+  if(b=t.closest('[data-m]')){calM=new Date(calM.getFullYear(),calM.getMonth()+ +b.dataset.m,1);return render()}
+  if(b=t.closest('[data-d]')){selDay=b.dataset.d;return render()}
+  if(b=t.closest('[data-y]')){var y=b.dataset.y;if(y==='back')ys=null;else if(y==='cont')tab='today';else if(/^F\dS\d$/.test(y)){setSem(y);save();ys=null;q='';fcat='';PO.ex=null;tab='today'}else ys=y;return render()}
+  if(b=t.closest('[data-a]')){var a=b.dataset.a;
+    if(a==='dates'){tab='dates';render()}else if(a==='dok'){tab='exams';render()}else if(a==='po')poToggle();else if(a==='por'){clearInterval(PO.iv);PO.run=false;PO.left=1500;render()}
+    else if(a==='exp')saveFile('partiels-sauvegarde.json',JSON.stringify(Object.assign({},S,{exams:undefined}),null,1));
+    else if(a==='imp')$('fi').click();
+    else if(a==='rst'&&S.cur&&confirm('Remettre ce semestre à zéro (matières d’origine, sans dates ni notes) ?')){S.data[S.cur]={exams:seed(S.cur)};setSem(S.cur);save();render()}}});
+$('v').addEventListener('change',function(e){var c=e.target;
+  if(c.dataset.rv){var q2=c.dataset.rv.split('|'),x2=S.exams.find(function(v){return v.id===q2[0]});x2.topics[+q2[1]].rv[+q2[2]].ok=true;mark(5);save();render();toast('Révision enregistrée')}
+  else if(c.dataset.id){var x=S.exams.find(function(v){return v.id===c.dataset.id}),t=x.topics[+c.dataset.i];t.done=c.checked;t.doneOn=c.checked?td():null;t.rv=c.checked&&x.kind!=='tp'?[3,7].map(function(n){var d=new Date;d.setDate(d.getDate()+n);return{d:ymd(d),ok:false}}).filter(function(r){return!x.date||r.d<x.date}):null;if(c.checked)mark(Math.max(t.min||0,1));save();render()}
+  else if(c.dataset.g){var g=S.exams.find(function(v){return v.id===c.dataset.g});g.grade=c.value===''?'':Math.min(Math.max(parseFloat(c.value),0),20);save();render()}
+  else if(c.dataset.dt){S.exams.find(function(v){return v.id===c.dataset.dt}).date=c.value;save();toast('Date enregistrée')}
+  else if(c.id==='bd'){S.budget=Math.min(Math.max(parseInt(c.value)||120,15),600);save();render()}
+  else if(c.id==='th'){S.theme=c.value;theme();save()}
+  else if(c.id==='fc'){fcat=c.value;render()}
+  else if(c.id==='fi'&&c.files[0]){var r=new FileReader;r.onload=function(){try{var o=JSON.parse(r.result);if(!o.data&&!Array.isArray(o.exams))throw 0;if(!o.data){o.data={F1S1:{exams:o.exams}};delete o.exams}S=Object.assign({exams:[],data:{},cur:null,act:{},study:{},theme:'auto'},o);S.exams=[];if(S.cur)setSem(S.cur);theme();save();render();toast('Sauvegarde restaurée')}catch(x){toast('Fichier invalide')}};r.readAsText(c.files[0])}});
+$('v').addEventListener('input',function(e){if(e.target.id==='q'){q=e.target.value;var p=e.target.selectionStart;render();var n=$('q');n.focus();n.setSelectionRange(p,p)}});
+load();render();
+try{if(window.claude&&claude.use)claude.use('downloads').then(function(d){DL=d}).catch(function(){})}catch(e){}
+})();
+</script></body></html>
